@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 /**
  * A quick and easy flip view through which you can create views with two sides like credit cards,
  * poker cards, flash cards etc.
- * 
+ *
  * Add com.wajahatkarim3.easyflipview.EasyFlipView into your XML layouts with two direct children
  * views and you are done!
  * For more information, check http://github.com/wajahatkarim3/EasyFlipView
@@ -40,7 +40,8 @@ public class EasyFlipView extends FrameLayout
     private int animFlipVerticalFrontOutId = R.animator.animation_vertical_front_out;
     private int animFlipVerticalFrontInId = R.animator.animation_vertical_flip_front_in;
 
-    public enum FlipState {
+    public enum FlipState
+    {
         FRONT_SIDE, BACK_SIDE
     }
 
@@ -54,7 +55,6 @@ public class EasyFlipView extends FrameLayout
     private String flipType = "vertical";
     private String flipTypeFrom = "right";
 
-
     private boolean flipOnTouch;
     private int flipDuration;
     private boolean flipEnabled;
@@ -67,7 +67,6 @@ public class EasyFlipView extends FrameLayout
     private float y1;
 
     private FlipState mFlipState = FlipState.FRONT_SIDE;
-
     private OnFlipAnimationListener onFlipListener = null;
 
     public EasyFlipView(Context context)
@@ -154,7 +153,6 @@ public class EasyFlipView extends FrameLayout
     public void removeView(View v)
     {
         super.removeView(v);
-
         findViews();
     }
 
