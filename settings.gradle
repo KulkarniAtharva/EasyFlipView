@@ -1,0 +1,3 @@
+include ':EasyFlipView'
+include ':app'
+rootProject.name = "EasyFlipView_library"

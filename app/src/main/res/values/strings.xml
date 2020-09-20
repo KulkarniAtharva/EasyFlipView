@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EasyFlipView_library</string>
+
+    <string name="flip_in_simple_view">Flip in Simple View</string>
+    <string name="flip_in_recyclerview">Flip in RecyclerView</string>
+    <string name="flip_once_example">Flip Once Example</string>
+</resources>
