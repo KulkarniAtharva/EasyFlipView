@@ -298,7 +298,6 @@ public class EasyFlipView extends FrameLayout
                 @Override
                 public void onAnimationStart(Animator animator)
                 {
-
                 }
 
                 @Override
