@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
  * @author Wajahat Karim (http://wajahatkarim.com)
  * @version 3.0.0 28/03/2019
  */
+
 public class EasyFlipView extends FrameLayout
 {
     public static final String TAG = EasyFlipView.class.getSimpleName();
@@ -94,7 +95,7 @@ public class EasyFlipView extends FrameLayout
         autoFlipBackTime = DEFAULT_AUTO_FLIP_BACK_TIME;
 
         // Check for the attributes
-        if (attrs != null)
+        if(attrs != null)
         {
             // Attribute initialization
             final TypedArray attrArray = context.obtainStyledAttributes(attrs, R.styleable.easy_flip_view, 0, 0);
@@ -129,7 +130,7 @@ public class EasyFlipView extends FrameLayout
     {
         super.onFinishInflate();
 
-        if (getChildCount() > 2)
+        if(getChildCount() > 2)
             throw new IllegalStateException("EasyFlipView can host only two direct children!");
 
         findViews();
@@ -266,13 +267,11 @@ public class EasyFlipView extends FrameLayout
                 @Override
                 public void onAnimationCancel(Animator animator)
                 {
-
                 }
 
                 @Override
                 public void onAnimationRepeat(Animator animator)
                 {
-
                 }
             });
             setFlipDuration(flipDuration);
@@ -339,13 +338,11 @@ public class EasyFlipView extends FrameLayout
                 @Override
                 public void onAnimationCancel(Animator animator)
                 {
-
                 }
 
                 @Override
                 public void onAnimationRepeat(Animator animator)
                 {
-
                 }
             });
             setFlipDuration(flipDuration);
@@ -368,7 +365,8 @@ public class EasyFlipView extends FrameLayout
      */
     public void flipTheView()
     {
-        if (!flipEnabled || getChildCount() < 2) return;
+        if (!flipEnabled || getChildCount() < 2)
+            return;
 
         if (flipOnceEnabled && mFlipState == FlipState.BACK_SIDE)
             return;
@@ -440,7 +438,8 @@ public class EasyFlipView extends FrameLayout
      */
     public void flipTheView(boolean withAnimation)
     {
-        if (getChildCount() < 2) return;
+        if (getChildCount() < 2)
+            return;
 
         if (flipType.equalsIgnoreCase("horizontal"))
         {
@@ -458,9 +457,7 @@ public class EasyFlipView extends FrameLayout
                 flipEnabled = oldFlipEnabled;
             }
             else
-            {
                 flipTheView();
-            }
         }
         else
         {
@@ -485,7 +482,6 @@ public class EasyFlipView extends FrameLayout
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-
         if (isEnabled() && flipOnTouch)
         {
             this.getParent().requestDisallowInterceptTouchEvent(true);

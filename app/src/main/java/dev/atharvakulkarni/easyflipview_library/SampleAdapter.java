@@ -42,7 +42,6 @@ public class SampleAdapter extends RecyclerView.Adapter<SampleAdapter.MyViewHold
   @Override
   public void onBindViewHolder(final MyViewHolder holder, final int position)
   {
-
     if (holder.flipView.getCurrentFlipState() == EasyFlipView.FlipState.FRONT_SIDE && list.get(position).isFlipped)
     {
       holder.flipView.setFlipDuration(0);
