@@ -18,12 +18,12 @@ import android.widget.FrameLayout;
  * A quick and easy flip view through which you can create views with two sides like credit cards,
  * poker cards, flash cards etc.
  *
- * Add com.wajahatkarim3.easyflipview.EasyFlipView into your XML layouts with two direct children
+ * Add dev.atharvakulkarni.easyflipview.EasyFlipView into your XML layouts with two direct children
  * views and you are done!
- * For more information, check http://github.com/wajahatkarim3/EasyFlipView
+ * For more information, check https://github.com/KulkarniAtharva/EasyFlipView
  *
- * @author Wajahat Karim (http://wajahatkarim.com)
- * @version 3.0.0 28/03/2019
+ * @author Atharva Kulkarni (https://kulkarniatharva.github.io/)
+ * @version 1.0.0 22/09/2020
  */
 
 public class EasyFlipView extends FrameLayout

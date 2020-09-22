@@ -1,10 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
-android {
+android
+{
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
-    defaultConfig {
+    defaultConfig
+    {
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
@@ -14,19 +18,140 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    buildTypes {
-        release {
+    buildTypes
+    {
+        release
+        {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
-dependencies {
+dependencies
+{
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 }
+
+ext
+{
+    // This should be same as you've created in bintray
+    bintrayRepo = 'maven'
+
+    // Name which will be visible on bintray
+    bintrayName = 'EasyFlipView'
+
+    // Library Details
+    publishedGroupId = 'dev.atharvakulkarni'
+    libraryName = 'EasyFlipView'
+    artifact = 'EasyFlipView'
+    libraryDescription = 'A quick and easy flip view through which you can create views with two sides like credit cards, poker cards etc.'
+    libraryVersion = '1.0.0'
+
+    // Repository Link (For e.g. GitHub repo)
+    siteUrl = 'https://github.com/KulkarniAtharva/EasyFlipView'
+    gitUrl = 'https://github.com/KulkarniAtharva/EasyFlipView.git'
+    githubRepository= 'kulkarniatharva/EasyFlipView'
+
+    // Developer Details
+    developerId = 'atharvakulkarni'
+    developerName = 'Atharva Kulkarni'
+    developerEmail = 'atharvakulkarni2204@gmail.com'
+
+    // License Details
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+// This is mandatory
+group = publishedGroupId
+
+install
+{
+    repositories.mavenInstaller
+    {
+        // This generates POM.xml with proper parameters
+        pom
+        {
+            project
+            {
+                packaging 'aar'
+
+                groupId publishedGroupId
+                artifactId = artifact
+                name libraryName
+                description = libraryDescription
+                url siteUrl
+
+                licenses
+                {
+                    license
+                    {
+                        name licenseName
+                        url licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+// Avoid Kotlin docs error
+tasks.withType(Javadoc) {
+    enabled = false
+}
+
+// Remove javadoc related tasks
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// https://github.com/bintray/gradle-bintray-plugin
+bintray {
+    user = System.getenv("bintrayUser")
+    key = System.getenv("bintrayApiKey")
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        publish = true
+    }
+}
+
