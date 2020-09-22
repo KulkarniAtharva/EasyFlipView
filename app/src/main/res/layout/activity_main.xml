@@ -21,8 +21,11 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:text="@string/flip_in_simple_view" />
-
+      android:text="@string/flip_in_simple_view"
+      android:background="@drawable/button_background"
+      android:textColor="#FFFFFF"
+      android:paddingLeft="22dp"
+      android:paddingRight="22dp"/>
 
   <Button
       android:id="@+id/btRecyclerView"
@@ -30,7 +33,11 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:layout_marginTop="10dp"
-      android:text="@string/flip_in_recyclerview" />
+      android:text="@string/flip_in_recyclerview"
+      android:background="@drawable/button_background"
+      android:textColor="#FFFFFF"
+      android:paddingLeft="@dimen/activity_horizontal_margin"
+      android:paddingRight="@dimen/activity_horizontal_margin"/>
 
   <Button
       android:id="@+id/btFlipOnceEg"
@@ -38,6 +45,10 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:layout_marginTop="10dp"
-      android:text="@string/flip_once_example" />
+      android:text="@string/flip_once_example"
+      android:background="@drawable/button_background"
+      android:textColor="#FFFFFF"
+      android:paddingLeft="22dp"
+      android:paddingRight="22dp"/>
 
 </LinearLayout>

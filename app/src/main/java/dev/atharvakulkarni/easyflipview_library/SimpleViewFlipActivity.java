@@ -19,6 +19,7 @@ public class SimpleViewFlipActivity extends AppCompatActivity
     easyFlipView.setFlipDuration(1000);
     easyFlipView.setFlipEnabled(true);
 
+
     findViewById(R.id.imgFrontCard).setOnClickListener(new View.OnClickListener()
     {
       @Override
