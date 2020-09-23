@@ -3,7 +3,7 @@
                                                 Built with ❤️ by Atharva Kulkarni
 
 
-💳 A quick and easy flip view through which you can create views with two sides like credit cards, poker cards etc.
+💳 A quick and easy flip view Android library developed by me, through which you can create views with two sides like credit cards, poker cards etc.
 
 
 <div align="left"><p><a href="https://android.jlelse.eu/easyflipviewpager-the-flip-animations-for-your-viewpager-fd66b34f4703"><img alt="New in the EasyFlipView" align="center" src="https://img.shields.io/badge/%F0%9F%93%84%20-NEW-red.svg" /></a>&nbsp;
@@ -26,7 +26,8 @@ Changes exist in the [releases](https://github.com/wajahatkarim3/EasyFlipView/re
 ============
 Add this in your app's `build.gradle` file:
 ```groovy
-dependencies {
+dependencies 
+{
   implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:3.0.0'
 }
 ```
